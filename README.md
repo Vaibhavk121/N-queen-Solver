@@ -17,3 +17,7 @@ The N-Queen Solver is a web application that solves the classic N-Queen problem.
    ```bash
    git clone https://github.com/Vaibhavk121/N-queen-Solver.git
    cd N-queen-Solver
+
+
+**HERE WILL BE THE OUTPUT**
+![image](https://github.com/user-attachments/assets/bf2b2fb9-2f2f-4caf-b331-5a087b7f680b)
