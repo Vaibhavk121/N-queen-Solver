@@ -8,7 +8,7 @@ The N-Queen Solver is a web application that solves the classic N-Queen problem.
 
 - Input the size of the chessboard (N).
 - Solve the N-Queen problem and display the solution on the chessboard.
-- Visual representation of the solution with queens displayed as the letter 'Q'.
+- Visual representation of the solution with queens displayed queen image.
 
 ## Installation
 
