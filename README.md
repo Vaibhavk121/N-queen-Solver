@@ -24,5 +24,7 @@ The N-Queen Solver is a web application that solves the classic N-Queen problem.
 
 3. **Open the Webpage**
 - Open the link that will be given after running the app.py(eg ~ http://127.0.0.1:5000)
-##Final output
+
+## Final Output
+
 ![image](https://github.com/user-attachments/assets/bf2b2fb9-2f2f-4caf-b331-5a087b7f680b)
