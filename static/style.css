@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.solution {
+    margin-top: 20px;
+}
+
+.board {
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #333;
+}
+
+.cell:nth-child(odd) {
+    background-color: #fff;
+}
+
+.cell:nth-child(even) {
+    background-color: #000;
+}
+
+.row:nth-child(even) .cell:nth-child(odd) {
+    background-color: #000;
+}
+
+.row:nth-child(even) .cell:nth-child(even) {
+    background-color: #fff;
+}
+.selector{
+text-color: red;
+
+}
+
+.queenimg{
+    margin-top:3px;
+    height:35px;
+}
