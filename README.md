@@ -18,6 +18,11 @@ The N-Queen Solver is a web application that solves the classic N-Queen problem.
    git clone https://github.com/Vaibhavk121/N-queen-Solver.git
    cd N-queen-Solver
 
+2. **Run the app.py file :**
+   ```bash
+   python app.py
 
-**HERE WILL BE THE OUTPUT**
+3. **Open the Webpage**
+- Open the link that will be given after running the app.py(eg ~ http://127.0.0.1:5000)
+##Final output
 ![image](https://github.com/user-attachments/assets/bf2b2fb9-2f2f-4caf-b331-5a087b7f680b)
