@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 import os
-app = Flask(__name__)
 
+app = Flask(__name__)
 
 def is_safe(board, row, col, n):
     for i in range(row):
@@ -15,7 +15,6 @@ def is_safe(board, row, col, n):
             return False
     return True
 
-
 def solve_n_queens(board, row, n):
     if row >= n:
         return True
@@ -27,7 +26,6 @@ def solve_n_queens(board, row, n):
             board[row][col] = 0
     return False
 
-
 def get_solution(n):
     board = [[0 for _ in range(n)] for _ in range(n)]
     if solve_n_queens(board, 0, n):
@@ -35,21 +33,51 @@ def get_solution(n):
     else:
         return None
 
+def validate_board(board):
+    n = len(board)
+    if n == 0:
+        return False
+    # Check rows
+    for row in board:
+        if row.count(1) > 1:
+            return False
+    # Check columns
+    for col in range(n):
+        count = sum(board[row][col] for row in range(n))
+        if count > 1:
+            return False
+    # Check diagonals
+    for i in range(-n + 1, n):
+        if sum(board[row][row + i] for row in range(n) if 0 <= row + i < n) > 1:
+            return False
+        if sum(board[row][n - row - 1 - i] for row in range(n) if 0 <= n - row - 1 - i < n) > 1:
+            return False
+    return True
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     solution = None
+    n = None
     if request.method == 'POST':
         n = int(request.form['n-value'])
-        print(f"Received input: {n}")  # Debug print
-        solution = get_solution(n)
-        print(f"Generated solution: {solution}")  # Debug print
-    return render_template('index.html', solution=solution)
-@app.route('/solve', methods=['POST'])
-def solve():
-    n = int(request.form['n-value'])
+        mode = request.form['mode']
+        if mode == 'computer':
+            solution = get_solution(n)
+    return render_template('index.html', solution=solution, n=n)
+
+@app.route('/check', methods=['POST'])
+def check():
+    data = request.get_json()
+    board = data['board']
+    valid = validate_board(board)
+    return jsonify({'valid': valid})
+
+@app.route('/hint', methods=['POST'])
+def hint():
+    data = request.get_json()
+    n = data['n-value']
     solution = get_solution(n)
-    return render_template('index.html', solution=solution)
+    return jsonify({'solution': solution})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
